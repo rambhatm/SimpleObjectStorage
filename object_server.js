@@ -14,6 +14,11 @@ var meta = new metastore({
     filename : meta_dir + "object.meta",
     autoload : true
 })
+//Index by unique object_key
+meta.ensureIndex({fieldName : "object_key", unique : true}, (err) => {
+    if (err) throw err
+})
+
 var router = express.Router()
 
 //Middleware
@@ -74,10 +79,19 @@ router.route('/objectstore')
 
             //Add metadata to meta-file
             meta.insert({object_key : key, object_name : name, object_path : path}, (err, new_meta_obj) => {
-                if (err) throw err
-                console.log("META file updated.")
-                res.send("Object POST successful")
-                res.end()
+                if (err) {
+                    if (err.errorType == "uniqueViolated") {
+                        res.send("Object key already exists")
+                        res.end()
+                        fs.unlink(path, (err) => {
+                            if (err) throw err
+                        })
+                    }
+                } else {
+                    console.log("META file updated.")
+                    res.send("Object POST successful")
+                    res.end()
+                }
             })
         })
     })

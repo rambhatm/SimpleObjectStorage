@@ -1,0 +1,92 @@
+{
+	"variables": [],
+	"info": {
+		"name": "OBJECT SERVER",
+		"_postman_id": "aeb6a3a7-8c16-5a19-ae54-0762ffb72fbc",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/objectstore",
+			"request": {
+				"url": "localhost:3000/objectstore/abcdef123kasjdlk",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "key",
+							"value": "abcdef123kasjdlk",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"enabled": true,
+							"src": "Update.exe"
+						}
+					]
+				},
+				"description": "POST object"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/objectstore",
+			"request": {
+				"url": "localhost:3000/objectstore/abcdef123kasjdlk",
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "key",
+							"value": "abcdef123kasjdlk",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "file",
+							"value": "",
+							"type": "file",
+							"enabled": true
+						}
+					]
+				},
+				"description": "GET object"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/objectstore",
+			"request": {
+				"url": "localhost:3000/objectstore/",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "key",
+							"value": "maksmdkasdm88",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "file",
+							"value": "",
+							"type": "file",
+							"enabled": true
+						}
+					]
+				},
+				"description": "POST object"
+			},
+			"response": []
+		}
+	]
+}
